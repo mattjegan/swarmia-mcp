@@ -19,7 +19,39 @@ This MCP server provides access to the following Swarmia Export API endpoints:
 - A Swarmia account with API access
 - A Swarmia API token (obtain from Settings/API tokens in your Swarmia dashboard)
 
-## Installation
+## Integration with MCP Clients
+
+To use this MCP server with your favourite MCP client (E.g. Claude, Cursor etc.):
+
+1. **Ensure depedancies are installed**
+```bash
+make install
+```
+
+2. **Add the following to your MCP configuration**
+```json
+   {
+     "mcpServers": {
+       "swarmia": {
+         "command": "/path/to/swarmia-mcp/venv/bin/python3",
+         "args": ["/path/to/swarmia-mcp/swarmia_mcp_server.py"],
+         "env": {
+           "SWARMIA_API_TOKEN": "your_api_token_here"
+         }
+       }
+     }
+   }
+```
+
+3. **Restart your client application**
+
+4. **Ask for some metrics**
+   Example queries:
+     - "Analyze our team's pull request cycle time trends"
+     - "Get the software capitalization report for Q1 2024"
+     - "Show me effort reporting for last month"
+
+## Installation for Development
 
 1. Clone or download this repository
 2. Install the required dependencies and setup the project:
@@ -261,7 +293,3 @@ result = await client.call_tool(
 - Check the [Swarmia Export API documentation](https://help.swarmia.com/getting-started/integrations/data-export/export-api)
 - Review the Swarmia API token settings in your dashboard
 - Contact Swarmia support for API-related issues
-
-## License
-
-This project is provided as-is for educational and integration purposes. Please refer to Swarmia's terms of service for API usage guidelines.

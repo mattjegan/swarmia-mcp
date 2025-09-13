@@ -1,0 +1,10 @@
+# Swarmia MCP Server Dependencies
+
+# MCP (Model Context Protocol) framework
+mcp>=1.0.0
+
+# HTTP client for API requests
+httpx>=0.25.0
+
+# Additional utilities
+python-dateutil>=2.8.0
